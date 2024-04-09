@@ -35,7 +35,7 @@
       "flakey": [],
       "runtimeError": false
     },
-    "test/e2e/app-dir/weird-chars-in-scripts.test.ts": {
+    "test/e2e/app-dir/weird-chars-in-scripts/weird-chars-in-scripts.test.ts": {
       "passed": [],
       "failed": [
         "weird chars in scripts should load in the browser when using app dir",
