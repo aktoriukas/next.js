@@ -1,18 +1,15 @@
 import { createNextDescribe } from 'e2e-utils'
-;(process.env.TURBOPACK ? describe.skip : describe)(
-  'Skipped in Turbopack',
-  () => {
-    createNextDescribe(
-      'mangle-reserved',
-      {
-        files: __dirname,
-      },
-      ({ next }) => {
-        it('should work using cheerio', async () => {
-          const $ = await next.render$('/')
-          expect($('p').text()).toBe('AbortSignal')
-        })
-      }
-    )
+
+createNextDescribe(
+  'mangle-reserved',
+  {
+    files: __dirname,
+  },
+  ({ next, isTurbopack }) => {
+    ;(isTurbopack ? it.skip : it)('should work using cheerio', async () => {
+      const $ = await next.render$('/')
+      // eslint-disable-next-line jest/no-standalone-expect
+      expect($('p').text()).toBe('AbortSignal')
+    })
   }
 )
