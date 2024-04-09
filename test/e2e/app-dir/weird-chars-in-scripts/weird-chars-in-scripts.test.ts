@@ -2,12 +2,12 @@
 import { nextTestSetup } from 'e2e-utils'
 
 describe('weird chars in scripts', () => {
-  const { next } = nextTestSetup({
+  const { next, isNextStart } = nextTestSetup({
     files: __dirname,
   })
   // TODO: fix test case in webpack
   // It's failing with `Could not find the module ".../app/client#component.tsx#" in the React Client Manifest. This is probably a bug in the React Server Components bundler.`
-  ;(process.env.TURBOPACK ? it : it.skip)(
+  ;(process.env.TURBOPACK && !isNextStart ? it : it.skip)(
     'should load in the browser',
     async () => {
       const browser = await next.browser('/')
@@ -19,7 +19,7 @@ describe('weird chars in scripts', () => {
       }
     }
   )
-  ;(process.env.TURBOPACK ? it : it.skip)(
+  ;(process.env.TURBOPACK && !isNextStart ? it : it.skip)(
     'should load in the browser',
     async () => {
       const browser = await next.browser('/pages')
