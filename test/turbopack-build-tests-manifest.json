@@ -35,6 +35,16 @@
       "flakey": [],
       "runtimeError": false
     },
+    "test/e2e/app-dir/weird-chars-in-scripts.test.ts": {
+      "passed": [],
+      "failed": [
+        "weird chars in scripts should load in the browser when using app dir",
+        "weird chars in scripts should load in the browser when using pages dir"
+      ],
+      "pending": [],
+      "flakey": [],
+      "runtimeError": false
+    },
     "test/e2e/app-dir-legacy-edge-runtime-config/index.test.ts": {
       "passed": [
         "app-dir edge runtime config should warn the legacy object config export"
